@@ -1,0 +1,2 @@
+* * * * * root /opt/send-attachments.sh >> /var/log/send-attachments.log 2>&1
+

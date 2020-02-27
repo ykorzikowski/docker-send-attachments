@@ -1,0 +1,14 @@
+---
+version: '3.5'
+
+services:
+  send_mail:
+    image: ykorzikowski/docker-send-attachments
+    restart: on-failure
+    environment:
+    - FROM_MAIL=developertools@engineerservices.de
+    - TARGET_MAIL=yannik@korzikowski.de
+    volumes:
+    - ~/docker_volumes/send_mail/config/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+    - ~/docker_volumes/send_mail/input:/input
+    - ~/docker_volumes/send_mail/logs:/var/mail
