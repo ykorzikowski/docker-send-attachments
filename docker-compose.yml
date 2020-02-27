@@ -6,6 +6,7 @@ services:
     image: ykorzikowski/docker-send-attachments
     restart: on-failure
     environment:
+    - INAME_FILTER=*.pdf
     - FROM_MAIL=from@mail
     - TARGET_MAIL=to@mail
     volumes:

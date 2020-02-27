@@ -21,5 +21,5 @@ echo "start ooking for pdfs now"
 while [ true ]; do
   sleep 15
 
-  find /input/ -iname '*.pdf' -type f -exec bash -c 'do_send "$0"' {} \;
+  find /input/ -iname "${INAME_FILTER}" -type f -exec bash -c 'do_send "$0"' {} \;
 done
