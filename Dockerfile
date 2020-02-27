@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-MAINTAINER Yannik Korzikowski <yannik@korzikowski.de>
+LABEL maintainer="yannik@korzikowski.de"
 
 VOLUME /config /input
 
