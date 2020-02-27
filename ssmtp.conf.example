@@ -1,0 +1,7 @@
+root=from@mail
+mailhub=smtp.office365.com:587
+rewriteDomain=mail
+AuthUser=from@mail
+AuthPass=pw
+FromLineOverride=YES
+UseSTARTTLS=YES
