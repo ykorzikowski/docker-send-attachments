@@ -10,6 +10,5 @@ services:
     - FROM_MAIL=from@mail
     - TARGET_MAIL=to@mail
     volumes:
-    - ~/docker_volumes/send_mail/config/ssmtp.conf:/etc/ssmtp/ssmtp.conf
+    - ~/docker_volumes/send_mail/config/ssmtp.conf:/etc/ssmtp/ssmtp.conf:ro
     - ~/docker_volumes/send_mail/input:/input
-    - ~/docker_volumes/send_mail/logs:/var/mail
