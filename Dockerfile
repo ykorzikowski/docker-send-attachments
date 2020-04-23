@@ -1,17 +1,26 @@
-FROM debian:buster
+FROM debian:stretch
 
 LABEL maintainer="yannik@korzikowski.de"
 
-VOLUME /config /input
+ARG UID=1000
 
-ADD send-attachments.sh /opt/send-attachments.sh
-
-# install packages
 RUN apt-get update && apt-get install -y ssmtp sharutils cron mpack
+
+RUN adduser --uid $UID --disabled-password --disabled-login --gecos "" --home /app pdf
 
 RUN touch /var/log/send-attachments.log
 
-ADD docker-entrypoint.sh /opt/docker-entrypoint.sh
-ENTRYPOINT ["/opt/docker-entrypoint.sh"]
+VOLUME /config /input
+
+ADD docker-entrypoint.sh /app/docker-entrypoint.sh
+ADD send-attachments.sh /app/send-attachments.sh
+
+WORKDIR /app
+
+RUN chown -R pdf:pdf .
+
+USER pdf
+
+ENTRYPOINT ["/app/docker-entrypoint.sh"]
 CMD ["cron"]
 
