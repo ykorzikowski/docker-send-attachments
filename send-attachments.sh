@@ -10,7 +10,7 @@ do_send() {
         echo "error while sending $1"
         return
     fi
-    rm $1
+    rm "$1"
     echo "successfully sent $1"
 }
 
