@@ -4,7 +4,7 @@ LABEL maintainer="yannik@korzikowski.de"
 
 ARG UID=1000
 
-RUN apt-get update && apt-get install -y ssmtp sharutils cron mpack
+RUN apt-get update && apt-get install -y ssmtp sharutils cron mpack curl
 
 RUN adduser --uid $UID --disabled-password --disabled-login --gecos "" --home /app pdf
 

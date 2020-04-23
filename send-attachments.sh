@@ -11,6 +11,9 @@ do_send() {
         return
     fi
     rm "$1"
+    if ! [ -z ${WEBHOOK+x} ]; then
+      curl -H 'Content-Type: application/json' -d "{\"text\": \"Sent mail to datev for file '$1'\"}" $WEBHOOK
+    fi
     echo "successfully sent $1"
 }
 
