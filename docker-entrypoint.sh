@@ -1,7 +1,7 @@
 #!/bin/bash
 
-if [ -f /var/log/send-attachments.log ]; then
-    touch /var/log/send-attachments.log
+if [ -f /log/send-attachments.log ]; then
+    touch /log/send-attachments.log
 fi
 
 # update CA certificates if necessary from /config/*.crt
@@ -11,4 +11,4 @@ then
     update-ca-certificates
 fi
 
-/opt/send-attachments.sh
+/app/send-attachments.sh

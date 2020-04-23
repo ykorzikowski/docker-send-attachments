@@ -8,10 +8,9 @@ RUN apt-get update && apt-get install -y ssmtp sharutils cron mpack
 
 RUN adduser --uid $UID --disabled-password --disabled-login --gecos "" --home /app pdf
 
-RUN touch /var/log/send-attachments.log
-
 VOLUME /config /input
 
+RUN mkdir /log && chown -R pdf:pdf /log
 ADD docker-entrypoint.sh /app/docker-entrypoint.sh
 ADD send-attachments.sh /app/send-attachments.sh
 
